@@ -6,43 +6,49 @@ from utils import clean_text
 
 # Sample grievance data from Consumer Complaint Database
 SAMPLE_GRIEVANCES = [
-    # Banking/Billing related
+    # Technical issues
+    "Mobile app keeps crashing during transactions causing financial loss",
+    "Unable to access online banking portal after multiple attempts",
+    "App crashes every time I try to make a payment",
+    "Website is not loading properly and shows error messages",
+    "Two-factor authentication system is not working",
+    "Technical glitch caused failed transactions",
+    "System errors preventing account access",
+    "App performance issues causing transaction failures",
+    "Login authentication problems on the platform",
+    "Continuous app crashes during important transactions",
+    
+    # Billing issues
     "Unauthorized charges appeared on my account statement",
-    "Bank charged excessive fees without prior notification",
     "Double payment was processed for my monthly bill",
     "Wrong interest rate applied to my loan account",
-    "ATM withdrawal charged but money not dispensed",
-    "Credit card payment was not posted to account",
+    "Incorrect fees charged to my account",
     "Monthly service fee charged despite maintaining minimum balance",
-    "Incorrect foreign transaction fees on my statement",
+    "Unexplained charges on my credit card",
+    "Billing discrepancy in my last statement",
+    "Overcharged for banking services",
+    "Wrong transaction amount debited",
+    "Multiple charges for single transaction",
     
-    # Technical issues
-    "Unable to access online banking portal",
-    "Mobile app keeps crashing during fund transfer",
-    "Cannot reset password through the website",
-    "Account balance not updating in real-time",
-    "Error message when trying to view statements",
-    "Two-factor authentication not working",
-    "Payment gateway timeout during transaction",
-    "Wrong account details showing in dashboard",
-    
-    # Account/Service related
-    "Account closed without proper notification",
-    "Delay in processing loan application",
-    "Customer service representative was unhelpful",
-    "Long wait times for support response",
-    "Branch staff refused to help with account issues",
-    "Incorrect information given about services",
-    "Difficulty updating personal information",
-    "Lost documents not properly handled"
+    # Service issues
+    "Customer service not responding to my complaints",
+    "Long wait times for support resolution",
+    "Poor handling of my service request",
+    "Staff was unhelpful with my inquiry",
+    "No response to multiple support tickets",
+    "Delayed response from customer care",
+    "Inadequate support for account issues",
+    "Poor communication from service team",
+    "Unresolved complaints despite following up",
+    "Lack of proper customer service assistance"
 ]
 
 # Corresponding labels for the sample grievances
-SAMPLE_LABELS = [
-    "billing", "billing", "billing", "billing", "billing", "billing", "billing", "billing",
-    "technical", "technical", "technical", "technical", "technical", "technical", "technical", "technical",
-    "service", "service", "service", "service", "service", "service", "service", "service"
-]
+SAMPLE_LABELS = (
+    ["technical"] * 10 +
+    ["billing"] * 10 +
+    ["service"] * 10
+)
 
 def train_classification_model() -> Tuple[LogisticRegression, TfidfVectorizer]:
     """
@@ -125,24 +131,24 @@ def get_resolution_pathway(category: str) -> str:
         str: Recommended resolution pathway
     """
     resolution_pathways = {
+        'technical': """
+            1. Document technical issue details and error messages
+            2. Collect system logs and crash reports
+            3. Escalate to technical support team for investigation
+            4. Implement and test solution
+            5. Follow up with user to confirm resolution
+        """,
         'billing': """
-            1. Document the billing discrepancy
-            2. Review transaction history and relevant charges
+            1. Document billing discrepancy details
+            2. Review transaction history and charges
             3. Contact billing department for verification
             4. Process refund/adjustment if warranted
             5. Update customer on resolution timeline
         """,
-        'technical': """
-            1. Document technical issue details
-            2. Collect error messages and system logs
-            3. Escalate to technical support team
-            4. Test proposed solution
-            5. Follow up with user to confirm resolution
-        """,
         'service': """
             1. Record service complaint details
             2. Review service history and documentation
-            3. Escalate to appropriate department
+            3. Escalate to customer service management
             4. Implement service improvement measures
             5. Follow up with customer satisfaction check
         """

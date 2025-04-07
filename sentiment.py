@@ -6,34 +6,34 @@ from utils import clean_text
 
 # Sample sentiment data from Consumer Complaint Database
 SAMPLE_SENTIMENTS = [
-    # Positive sentiments
-    "Exceptional service! Issue resolved immediately",
-    "Extremely satisfied with the quick resolution",
+    # Strong Positive sentiments
+    "Excellent service, issue resolved immediately!",
     "Outstanding support team, solved everything perfectly",
-    "Excellent handling of my complaint, very professional",
-    "Incredibly helpful staff, exceeded expectations",
-    "Fantastic response time and resolution",
+    "Incredibly helpful staff, exceeded all expectations",
+    "Fantastic response and quick resolution",
     "Perfect handling of my case, very impressed",
-    "Brilliant service recovery, totally satisfied",
+    "Brilliant service recovery, completely satisfied",
+    "Exceptional customer service experience",
+    "Great improvement in service quality",
     
     # Neutral sentiments
-    "Need information about my account status",
-    "Requesting details about the transaction fees",
+    "Requesting information about account status",
+    "Need details about transaction fees",
     "When will my application be processed",
     "Please review my account statement",
-    "What documents are required for this process",
-    "How long does the verification take",
-    "Need to update my contact information",
-    "Checking the status of my request",
+    "What documents are required for this",
+    "How long is the verification process",
+    "Need to update contact information",
+    "Checking status of my request",
     
-    # Negative sentiments
-    "Absolutely outraged by the terrible service!",
-    "Completely unacceptable response to my urgent issue",
-    "Horrendous experience, worst service ever received",
+    # Strong Negative sentiments
+    "Absolutely outrageous service quality!",
+    "Completely unacceptable response to urgent issue",
     "Extremely frustrated with total lack of support",
+    "This is absolutely terrible and unacceptable!",
+    "Horrendous experience, worst service ever",
     "Utterly disappointed, demanding immediate action",
-    "Severely impacted by your negligent handling",
-    "Totally incompetent staff, wasted hours of my time",
+    "Severely impacted by your incompetence",
     "Disastrous customer service, considering legal action"
 ]
 
